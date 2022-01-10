@@ -21,10 +21,7 @@ const Nav = () => {
       <nav className="nav">
         {categories.map((category) => {
           return (
-            <Link
-              to={`/categories/?category=${category.slug}`}
-              key={category.slug}
-            >
+            <Link to={`/reviews/category/${category.slug}`} key={category.slug}>
               {category.slug}
             </Link>
           );

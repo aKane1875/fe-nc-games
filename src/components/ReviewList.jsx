@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getReviews } from "../utils/api";
 
 const ReviewList = () => {
   const [reviews, setReviews] = useState([]);
 
+  const { category } = useParams();
+
   useEffect(() => {
-    getReviews().then((returnedReviews) => {
+    getReviews(category).then((returnedReviews) => {
       setReviews(returnedReviews);
     });
-  }, []);
+  }, [category]);
 
   return (
     <ul className="reviews-list">

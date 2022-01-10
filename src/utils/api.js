@@ -10,8 +10,18 @@ export const getCategories = () => {
   });
 };
 
-export const getReviews = () => {
-  return reviewsApi.get("/reviews").then((res) => {
+export const getReviews = (category) => {
+  let path = "/reviews";
+  if (category) {
+    path += `/?category=${category}`;
+  }
+  return reviewsApi.get(path).then((res) => {
     return res.data.reviews;
+  });
+};
+
+export const getReviewById = (review_id) => {
+  return reviewsApi.get(`/reviews/${review_id}`).then((res) => {
+    return res.data;
   });
 };
