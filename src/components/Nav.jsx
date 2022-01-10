@@ -16,9 +16,9 @@ const Nav = () => {
   }, []);
 
   return (
-    <header>
+    <header className="header">
       <h1>Northcoders Games Reviews</h1>
-      <nav>
+      <nav className="nav">
         {categories.map((category) => {
           return (
             <Link

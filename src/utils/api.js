@@ -9,3 +9,9 @@ export const getCategories = () => {
     return res.data.categories;
   });
 };
+
+export const getReviews = () => {
+  return reviewsApi.get("/reviews").then((res) => {
+    return res.data.reviews;
+  });
+};

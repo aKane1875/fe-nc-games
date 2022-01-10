@@ -10,6 +10,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<ReviewList />} />
+          <Route path="/reviews" element={<ReviewList />} />
         </Routes>
       </div>
     </BrowserRouter>
