@@ -18,6 +18,7 @@ const CommentList = ({ review_id }) => {
             <p>{comment.author}</p>
             <p>{comment.body}</p>
             <p>Likes: {comment.votes}</p>
+            <button>LIKE</button>
           </li>
         );
       })}

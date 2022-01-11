@@ -15,12 +15,17 @@ const ReviewList = () => {
 
   return (
     <ul className="reviews-list">
-      <h2>REVIEWS</h2>
+      {category ? (
+        <h2>{category.toUpperCase()} GAME REVIEWS</h2>
+      ) : (
+        <h2> All REVIEWS</h2>
+      )}
       {reviews.map((review) => {
         return (
           <li key={review.review_id}>
             <Link to={`/reviews/${review.review_id}`}>
               <p>{review.title}</p>
+
               <p>{review.owner}</p>
               <img src={review.review_img_url} />
             </Link>
