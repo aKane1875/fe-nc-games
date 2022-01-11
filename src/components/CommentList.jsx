@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getCommentsByReviewId } from "../utils/api";
+import CommentCard from "./CommentCard";
 
 const CommentList = ({ review_id }) => {
   const [comments, setComments] = useState([]);
@@ -15,10 +16,7 @@ const CommentList = ({ review_id }) => {
       {comments.map((comment) => {
         return (
           <li key={comment.comment_id}>
-            <p>{comment.author}</p>
-            <p>{comment.body}</p>
-            <p>Likes: {comment.votes}</p>
-            <button>LIKE</button>
+            <CommentCard comment={comment} review_id={review_id} />
           </li>
         );
       })}

@@ -39,3 +39,11 @@ export const patchReviewLikes = (review_id, numToAmend) => {
       return res.data.updatedReview;
     });
 };
+
+export const patchCommentLikes = (comment_id, numToAmend) => {
+  return reviewsApi
+    .patch(`/comments/${comment_id}`, { inc_votes: numToAmend })
+    .then((res) => {
+      return res.data.updatedComment;
+    });
+};
