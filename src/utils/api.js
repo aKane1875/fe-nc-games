@@ -48,10 +48,10 @@ export const patchCommentLikes = (comment_id, numToAmend) => {
     });
 };
 
-export const postComment = (user, body, review_id) => {
+export const postComment = (username, body, review_id) => {
   return reviewsApi
     .post(`/reviews/${review_id}/comments`, {
-      username: user,
+      username: username,
       body: body,
     })
     .then((res) => {

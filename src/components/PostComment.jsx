@@ -1,14 +1,17 @@
-import { useEffect } from "react";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { postComment } from "../utils/api";
+import { UserContext } from "../contexts/UserContext";
 
 const PostComment = () => {
   let { review_id } = useParams();
   review_id = Number(review_id);
+
+  const { user } = useContext(UserContext);
+
   const submitComment = (event) => {
-    const user = event.target[0].value;
-    const comment = event.target[1].value;
-    postComment(user, comment, review_id)
+    const comment = event.target[0].value;
+    postComment(user.username, comment, review_id)
       .then((returnedReview) => {
         console.log(returnedReview);
       })
@@ -20,9 +23,9 @@ const PostComment = () => {
   return (
     <section className="post-comment-form">
       <form onSubmit={submitComment} action={`/reviews/${review_id}`}>
-        NAME:
+        {/* NAME:
         <input type="text" name="username" />
-        <br></br>
+        <br></br> */}
         COMMENT:
         <input id="comment" type="textarea" name="comment-body" />
         <br></br>

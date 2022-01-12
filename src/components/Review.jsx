@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getReviewById, patchReviewLikes } from "../utils/api";
+import { Link } from "react-router-dom";
 import CommentList from "./CommentList";
 
 const Review = () => {
@@ -51,6 +52,9 @@ const Review = () => {
       <button id="comments-button" onClick={toggleComments}>
         {commentsDisplayed ? "HIDE COMMENTS" : "SEE COMMENTS"}
       </button>
+      <Link to={`/reviews/${review_id}/post_comment`} review_id={review_id}>
+        <button>ADD COMMENT</button>
+      </Link>
       {commentsDisplayed && <CommentList review_id={review.review_id} />}
     </div>
   );
