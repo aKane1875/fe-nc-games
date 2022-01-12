@@ -1,17 +1,27 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getReviews } from "../utils/api";
+import ReviewCard from "./ReviewCard";
 
 const ReviewList = () => {
   const [reviews, setReviews] = useState([]);
-
+  const [sortBy, setSortBy] = useState("reviews.created_at");
   const { category } = useParams();
 
   useEffect(() => {
-    getReviews(category).then((returnedReviews) => {
-      setReviews(returnedReviews);
-    });
-  }, [category]);
+    getReviews(category, sortBy)
+      .then((returnedReviews) => {
+        setReviews(returnedReviews);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [category, sortBy]);
+
+  const handleSortChange = (event) => {
+    event.preventDefault();
+    setSortBy(event.target.value);
+  };
 
   return (
     <ul className="reviews-list">
@@ -20,15 +30,16 @@ const ReviewList = () => {
       ) : (
         <h2> All REVIEWS</h2>
       )}
+      <h4>SORT BY</h4>
+      <select name="sort_by" onChange={handleSortChange}>
+        <option value="reviews.created_at">DATE</option>
+        <option value="comment_count">COMMENTS</option>
+        <option value="reviews.votes">LIKES</option>
+      </select>
       {reviews.map((review) => {
         return (
           <li key={review.review_id}>
-            <Link to={`/reviews/${review.review_id}`}>
-              <p>{review.title}</p>
-
-              <p>{review.owner}</p>
-              <img src={review.review_img_url} />
-            </Link>
+            <ReviewCard review={review} />
           </li>
         );
       })}

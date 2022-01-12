@@ -10,11 +10,16 @@ export const getCategories = () => {
   });
 };
 
-export const getReviews = (category) => {
+export const getReviews = (category, sort_by) => {
   let path = "/reviews";
-  if (category) {
-    path += `/?category=${category}`;
+  if (category && sort_by) {
+    path += `?category=${category}&sort_by=${sort_by}`;
+  } else if (category) {
+    path += `?category=${category}`;
+  } else if (sort_by) {
+    path += `?sort_by=${sort_by}`;
   }
+  console.log(path);
   return reviewsApi.get(path).then((res) => {
     return res.data.reviews;
   });
