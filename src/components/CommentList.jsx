@@ -5,12 +5,13 @@ import CommentCard from "./CommentCard";
 
 const CommentList = ({ review_id }) => {
   const [comments, setComments] = useState([]);
+  const [commentsLength, setCommentsLength] = useState(comments.length);
 
   useEffect(() => {
     getCommentsByReviewId(review_id).then((returnedComments) => {
       setComments(returnedComments);
     });
-  }, []);
+  }, [commentsLength]);
 
   return (
     <section className="comments">
@@ -18,7 +19,11 @@ const CommentList = ({ review_id }) => {
         {comments.map((comment) => {
           return (
             <li key={comment.comment_id}>
-              <CommentCard comment={comment} review_id={review_id} />
+              <CommentCard
+                comment={comment}
+                setCommentsLength={setCommentsLength}
+                review_id={review_id}
+              />
             </li>
           );
         })}

@@ -60,7 +60,12 @@ export const postComment = (username, body, review_id) => {
       body: body,
     })
     .then((res) => {
-      console.log(res);
       return res;
     });
+};
+
+export const deleteComment = (comment_id) => {
+  return reviewsApi.delete(`/comments/${comment_id}`).then((res) => {
+    return res;
+  });
 };
