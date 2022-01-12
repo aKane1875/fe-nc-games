@@ -40,3 +40,12 @@ img {
 li a {
   text-decoration: none;
 }
+
+.post-comment-form {
+  text-align: center;
+}
+
+#comment {
+  height: 100px;
+  width: 300px;
+}

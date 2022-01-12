@@ -28,7 +28,6 @@ const CommentCard = ({ comment, review_id }) => {
       <p>{comment.author}</p>
       <p>{comment.body}</p>
       <p>Likes: {commentLikes}</p>
-
       <button onClick={toggleLike}>
         {commentLiked ? "REMOVE LIKE" : "LIKE"}
       </button>

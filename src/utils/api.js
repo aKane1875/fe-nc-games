@@ -47,3 +47,15 @@ export const patchCommentLikes = (comment_id, numToAmend) => {
       return res.data.updatedComment;
     });
 };
+
+export const postComment = (user, body, review_id) => {
+  return reviewsApi
+    .post(`/reviews/${review_id}/comments`, {
+      username: user,
+      body: body,
+    })
+    .then((res) => {
+      console.log(res);
+      return res;
+    });
+};

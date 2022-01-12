@@ -49,7 +49,7 @@ const Review = () => {
       </button>
       <p>Comments: {review.comment_count}</p>
       <button id="comments-button" onClick={toggleComments}>
-        See Comments
+        {commentsDisplayed ? "HIDE COMMENTS" : "SEE COMMENTS"}
       </button>
       {commentsDisplayed && <CommentList review_id={review.review_id} />}
     </div>
