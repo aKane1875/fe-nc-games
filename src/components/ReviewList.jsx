@@ -5,13 +5,16 @@ import ReviewCard from "./ReviewCard";
 
 const ReviewList = () => {
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [sortBy, setSortBy] = useState("reviews.created_at");
   const { category } = useParams();
 
   useEffect(() => {
+    setIsLoading(true);
     getReviews(category, sortBy)
       .then((returnedReviews) => {
         setReviews(returnedReviews);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -38,6 +41,7 @@ const ReviewList = () => {
           <option value="reviews.votes">LIKES</option>
         </select>
       </div>
+      {isLoading ? <h2>Fetching reviews, please wait</h2> : null}
       {reviews.map((review) => {
         return (
           <li key={review.review_id}>

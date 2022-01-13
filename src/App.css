@@ -23,6 +23,7 @@ body {
 
 @media only screen and (max-width: 411px) {
   .nav a {
+    /* display: none; */
   }
 
   li img {
@@ -109,4 +110,9 @@ li a {
 
 img {
   width: 50%;
+}
+
+#sort {
+  align-self: center;
+  margin-left: 5%;
 }

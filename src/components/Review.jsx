@@ -10,11 +10,14 @@ const Review = () => {
   const [commentsDisplayed, setCommentsDisplayed] = useState(false);
   const [reviewLikes, setReviewLikes] = useState();
   const [reviewLiked, setReviewLiked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     getReviewById(review_id).then((returnedReview) => {
       setReview(returnedReview.review);
       setReviewLikes(returnedReview.review.votes);
+      setIsLoading(false);
     });
   }, []);
 
@@ -40,6 +43,7 @@ const Review = () => {
 
   return (
     <div className="review">
+      {isLoading ? <h2>Please wait, fetching comment</h2> : null}
       <h2>{review.title}</h2>
       <p>{review.owner}</p>
       <img src={review.review_img_url} />
