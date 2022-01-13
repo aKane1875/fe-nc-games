@@ -30,6 +30,10 @@ body {
   }
 }
 
+H2 {
+  color: rgba(44, 95, 21, 0.877);
+}
+
 .reviews-list {
   list-style-type: none;
   margin-top: 0;
