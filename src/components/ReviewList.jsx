@@ -6,6 +6,7 @@ import ReviewCard from "./ReviewCard";
 const ReviewList = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, SetIsError] = useState(false);
   const [sortBy, setSortBy] = useState("reviews.created_at");
   const { category } = useParams();
 
@@ -18,6 +19,7 @@ const ReviewList = () => {
       })
       .catch((err) => {
         console.log(err);
+        SetIsError(true);
       });
   }, [category, sortBy]);
 
@@ -42,6 +44,7 @@ const ReviewList = () => {
         </select>
       </div>
       {isLoading ? <h2>Fetching reviews, please wait</h2> : null}
+      {isError ? <h2>PLACEHOLDER ERROR</h2> : null}
       {reviews.map((review) => {
         return (
           <li key={review.review_id}>

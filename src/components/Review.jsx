@@ -11,14 +11,20 @@ const Review = () => {
   const [reviewLikes, setReviewLikes] = useState();
   const [reviewLiked, setReviewLiked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    getReviewById(review_id).then((returnedReview) => {
-      setReview(returnedReview.review);
-      setReviewLikes(returnedReview.review.votes);
-      setIsLoading(false);
-    });
+    getReviewById(review_id)
+      .then((returnedReview) => {
+        setReview(returnedReview.review);
+        setReviewLikes(returnedReview.review.votes);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsError(true);
+      });
   }, []);
 
   const toggleComments = () => setCommentsDisplayed((currState) => !currState);
