@@ -34,9 +34,9 @@ const CommentCard = ({ comment, setCommentsLength, review_id }) => {
   };
 
   return (
-    <>
+    <div className="comment-card">
       <p>{comment.author}</p>
-      <p>{comment.body}</p>
+      <p id="comment">{comment.body}</p>
       <p>{Date(comment.created_at)}</p>
       <p>Likes: {commentLikes}</p>
       <button onClick={toggleLike}>
@@ -47,7 +47,7 @@ const CommentCard = ({ comment, setCommentsLength, review_id }) => {
           DELETE COMMENT
         </button>
       ) : null}
-    </>
+    </div>
   );
 };
 
