@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import dayjs from "dayjs";
 
 const ReviewCard = ({ review }) => {
   return (
     <Link to={`/reviews/${review.review_id}`}>
-      <p>{review.title}</p>
-      <p>{review.owner}</p>
-      <p>{Date(review.created_at)}</p>
+      <h3>{review.title}</h3>
+      <h4>author: {review.owner}</h4>
+      <p>created: {dayjs(review.created_at).toString()}</p>
       <img src={review.review_img_url} />
       <p>
         LIKES: {review.votes} COMMENTS: {review.comment_count}

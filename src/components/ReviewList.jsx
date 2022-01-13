@@ -28,14 +28,16 @@ const ReviewList = () => {
       {category ? (
         <h2>{category.toUpperCase()} GAME REVIEWS</h2>
       ) : (
-        <h2> All REVIEWS</h2>
+        <h2> ALL REVIEWS</h2>
       )}
-      <h4>SORT BY</h4>
-      <select name="sort_by" onChange={handleSortChange}>
-        <option value="reviews.created_at">DATE</option>
-        <option value="comment_count">COMMENTS</option>
-        <option value="reviews.votes">LIKES</option>
-      </select>
+      <div id="sort">
+        <label for="sort_by">SORT BY: </label>
+        <select name="sort_by" onChange={handleSortChange}>
+          <option value="reviews.created_at">DATE</option>
+          <option value="comment_count">COMMENTS</option>
+          <option value="reviews.votes">LIKES</option>
+        </select>
+      </div>
       {reviews.map((review) => {
         return (
           <li key={review.review_id}>
