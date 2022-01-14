@@ -36,7 +36,7 @@ const ReviewList = () => {
         <h2> ALL REVIEWS</h2>
       )}
       <div id="sort">
-        <label for="sort_by">SORT BY: </label>
+        <label htmlFor="sort_by">SORT BY: </label>
         <select name="sort_by" onChange={handleSortChange}>
           <option value="reviews.created_at">DATE</option>
           <option value="comment_count">COMMENTS</option>
