@@ -43,7 +43,9 @@ const ReviewList = () => {
           <option value="reviews.votes">LIKES</option>
         </select>
       </div>
-      {isLoading ? <h2>Fetching reviews, please wait</h2> : null}
+      {isLoading ? (
+        <h2 className="loading-msg">Fetching reviews, please wait</h2>
+      ) : null}
       {isError ? <h2>PLACEHOLDER ERROR</h2> : null}
       {reviews.map((review) => {
         return (

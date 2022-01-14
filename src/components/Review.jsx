@@ -49,7 +49,10 @@ const Review = () => {
 
   return (
     <div className="review">
-      {isLoading ? <h2>Please wait, fetching comment</h2> : null}
+      {isLoading ? (
+        <h2 className="loading-msg">Please wait, fetching comment</h2>
+      ) : null}
+      {!review ? <h2>NO REVIEW FOUND WWITH THIS ID</h2> : null}
       <h2>{review.title}</h2>
       <p>{review.owner}</p>
       <img src={review.review_img_url} />
@@ -59,7 +62,11 @@ const Review = () => {
         {reviewLiked ? "REMOVE LIKE" : "LIKE"}
       </button>
       <p>Comments: {review.comment_count}</p>
-      <button id="comments-button" onClick={toggleComments}>
+      <button
+        id="comments-button"
+        onClick={toggleComments}
+        disabled={review.comment_count === 0}
+      >
         {commentsDisplayed ? "HIDE COMMENTS" : "SEE COMMENTS"}
       </button>
       <Link to={`/reviews/${review_id}/post_comment`} review_id={review_id}>

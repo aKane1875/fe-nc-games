@@ -116,3 +116,7 @@ img {
   align-self: center;
   margin-left: 5%;
 }
+
+.loading-msg {
+  margin: 20%;
+}
