@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { deleteComment, patchCommentLikes } from "../utils/api";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";

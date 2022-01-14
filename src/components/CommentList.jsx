@@ -10,7 +10,6 @@ const CommentList = () => {
   const [isError, setIsError] = useState(false);
   const { review_id } = useParams();
 
-  console.log(review_id);
   useEffect(() => {
     setIsLoading(true);
     getCommentsByReviewId(review_id)
@@ -22,7 +21,7 @@ const CommentList = () => {
         console.dir(err);
         setIsError(true);
       });
-  }, [commentsLength]);
+  }, [review_id, commentsLength]);
 
   return (
     <section className="comments">

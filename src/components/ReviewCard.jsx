@@ -5,7 +5,7 @@ const ReviewCard = ({ review }) => {
   return (
     <Link to={`/reviews/${review.review_id}`}>
       <h3>{review.title}</h3>
-      <img src={review.review_img_url} />
+      <img src={review.review_img_url} alt="user created pic" />
       <h4>author: {review.owner}</h4>
       <p>created: {dayjs(review.created_at).toString()}</p>
       <p>

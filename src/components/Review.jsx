@@ -25,7 +25,7 @@ const Review = () => {
         console.log(err);
         setIsError(true);
       });
-  }, []);
+  }, [review_id]);
 
   const toggleComments = () => setCommentsDisplayed((currState) => !currState);
 
@@ -49,13 +49,14 @@ const Review = () => {
 
   return (
     <div className="review">
+      {isError ? <h2>PLACEHOLDER ERROR</h2> : null}
       {isLoading ? (
         <h2 className="loading-msg">Please wait, fetching comment</h2>
       ) : null}
       {!review ? <h2>NO REVIEW FOUND WWITH THIS ID</h2> : null}
       <h2>{review.title}</h2>
       <p>{review.owner}</p>
-      <img src={review.review_img_url} />
+      <img src={review.review_img_url} alt="user created pic" />
       <p>{review.review_body}</p>
       <p>Likes: {reviewLikes}</p>
       <button className="like-button" onClick={toggleLike}>
