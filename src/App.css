@@ -4,11 +4,10 @@ body {
 }
 
 .header {
-  display: inline-flex;
+  display: block;
   border: 1px solid rgb(58, 58, 68);
   background-color: rgba(44, 95, 21, 0.877);
   width: 100%;
-  display: block;
 }
 
 .header a {
@@ -21,66 +20,23 @@ body {
   margin-right: 2%;
 }
 
-@media only screen and (max-width: 411px) {
-  .nav a {
-    /* display: none; */
-  }
-
-  li img {
-    display: none;
-  }
-}
-
 h2 {
   color: rgba(44, 95, 21, 0.877);
 }
 
-.reviews-list {
-  list-style-type: none;
-  margin-top: 0;
-  display: inline-flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-content: center;
-  width: 75%;
-}
-
-.comment-card {
-  align-content: center;
-  background-color: rgba(7, 141, 29, 0.2);
-}
-
-#comment {
-  border: 1px solid green;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.comments-list {
-  background-color: rgba(44, 95, 21, 0.877);
-  list-style-type: none;
-  margin-top: 0;
-  display: inline-flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-content: center;
-  width: 75%;
-}
-li {
+.reviews-list li {
   border: 1px solid green;
   background-color: white;
   color: black;
   margin-bottom: 2%;
   display: flex;
-  margin-right: 2%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 2%;
 }
 
 li a:hover {
   box-shadow: -2px -2px 15px rgb(6, 39, 6);
-}
-
-button > a:hover {
-  box-shadow: 0px, 0px, 0px pink;
 }
 
 li h3 {
@@ -105,13 +61,53 @@ li a {
   text-decoration: none;
 }
 
+.review {
+  max-width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.review-body {
+  background-color: rgba(44, 95, 21, 0.877);
+  color: white;
+  padding: 10%;
+}
+
+.comments-list {
+  background-color: rgba(44, 95, 21, 0.877);
+  list-style-type: none;
+  margin-top: 0;
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.comments-list li {
+  background-color: white;
+  color: green;
+  margin-bottom: 2%;
+  margin-right: 10%;
+  margin-top: 2%;
+  min-width: 100%;
+}
+
+.comment-card {
+  color: green;
+  border: 2px solid white;
+}
+
 .post-comment-form {
   text-align: center;
 }
 
 #comment {
   height: 100px;
-  width: 300px;
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
 }
 
 img {
@@ -127,10 +123,6 @@ img {
   margin: 20%;
 }
 
-.comments h2 {
-  margin: 5%;
-}
-
 button {
   border-radius: 5%;
   background-color: rgba(7, 141, 29);
@@ -140,4 +132,10 @@ button {
 
 button :hover {
   box-shadow: 0px, 0px, 0px;
+}
+
+@media only screen and (max-width: 411px) {
+  li img {
+    display: none;
+  }
 }

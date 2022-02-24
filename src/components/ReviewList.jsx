@@ -47,6 +47,7 @@ const ReviewList = () => {
         <h2 className="loading-msg">Fetching reviews, please wait</h2>
       ) : null}
       {isError ? <h2>PLACEHOLDER ERROR</h2> : null}
+      <br></br>
       {reviews.map((review) => {
         return (
           <li key={review.review_id}>

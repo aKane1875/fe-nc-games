@@ -22,8 +22,9 @@ const PostComment = () => {
 
   return (
     <section className="post-comment-form">
+      <h2>POSTING AS: {user.username}</h2>
       <form onSubmit={submitComment} action={`/reviews/${review_id}`}>
-        COMMENT:
+        PLEASE ENTER YOUR COMMENT BELOW:
         <input id="comment" type="textarea" name="comment-body" />
         <br></br>
         <button>Submit Comment</button>

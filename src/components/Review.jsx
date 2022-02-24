@@ -57,7 +57,7 @@ const Review = () => {
       <h2>{review.title}</h2>
       <p>{review.owner}</p>
       <img src={review.review_img_url} alt="user created pic" />
-      <p>{review.review_body}</p>
+      <p className="review-body">{review.review_body}</p>
       <p>Likes: {reviewLikes}</p>
       <button className="like-button" onClick={toggleLike}>
         {reviewLiked ? "REMOVE LIKE" : "LIKE"}
