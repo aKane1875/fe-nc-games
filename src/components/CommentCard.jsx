@@ -35,9 +35,9 @@ const CommentCard = ({ comment, setCommentsLength, review_id }) => {
 
   return (
     <div className="comment-card">
-      <p>{comment.author}</p>
-      <p id="comment">{comment.body}</p>
-      <p>{Date(comment.created_at)}</p>
+      <h4 id="comment">{comment.body}</h4>
+      <p>author: {comment.author}</p>
+      <p>created: {Date(comment.created_at).slice(0, 21)}</p>
       <p>Likes: {commentLikes}</p>
       <button onClick={toggleLike}>
         {commentLiked ? "REMOVE LIKE" : "LIKE"}
